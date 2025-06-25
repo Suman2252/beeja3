@@ -1,0 +1,103 @@
+.footerContainer {
+  position: relative;
+  background: linear-gradient(135deg, 
+    var(--footer-gradient-start) 0%, 
+    var(--footer-gradient-end) 100%);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+
+.brandSection {
+  position: relative;
+}
+
+.socialIcon {
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.socialIcon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.footerLink {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.footerLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  transition: width 0.3s ease;
+}
+
+.footerLink:hover::after {
+  width: 100%;
+}
+
+.bottomLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.copyrightInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .bottomLinks {
+    justify-content: flex-start;
+  }
+  
+  .copyrightInfo {
+    justify-content: flex-end;
+  }
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .footerContainer {
+  background: linear-gradient(135deg, 
+    rgba(17, 24, 39, 0.85) 0%, 
+    rgba(31, 41, 55, 0.85) 100%);
+  border-color: rgba(75, 85, 99, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .socialIcon {
+  background: rgba(55, 65, 81, 0.8) !important;
+}
+
+[data-theme="dark"] .socialIcon:hover {
+  background: rgba(75, 85, 99, 0.9) !important;
+}
+
+/* Light mode specific styles */
+[data-theme="light"] .footerContainer {
+  background: linear-gradient(135deg, 
+    rgba(249, 250, 251, 0.95) 0%, 
+    rgba(243, 244, 246, 0.95) 100%);
+  border-color: rgba(209, 213, 219, 0.5);
+}
+
+[data-theme="light"] .socialIcon {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="light"] .socialIcon:hover {
+  background: rgba(243, 244, 246, 0.9) !important;
+}
